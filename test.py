@@ -4,6 +4,7 @@ from structures import Stack
 from structures import Queue
 from structures import Deque
 from structures import DoublyLinkedList
+from structures import CircularLinkedList
 
 def test_linked_list():
     l = LinkedList([1, 2, 3])
@@ -42,12 +43,15 @@ def test_linked_list():
     m.insert(2, 11)
     m.insert(100, 54)
     m.insert(0, 96)
-    print(m.back())
+    print(m)
     print(m)
     # print(m.indexof(11))
     m.pop(3)
+    m.remove(96)
+    m.reverse()
     print(m)
     m.clear()
+    print(m._head, m._tail)
     print(m)
     # print(m._head._value)
     # print(m._tail._value)
@@ -56,8 +60,12 @@ def test_linked_list():
     # assert m._head._next._value == 3
     # assert m._tail._value == 3
     # print(m)
+    l = LinkedList([1])
+    print(l)
+    l.pop()
+    print(l)
 
-test_linked_list()
+# test_linked_list()
 
 
 def test_stack():
@@ -90,6 +98,7 @@ def test_queue():
     print(q.indexof(25))
     print(q)
     q.clear()
+    print(q._head, q._tail)
     print(q)
     q.enqueue(25)
     q.dequeue()
@@ -105,19 +114,36 @@ def test_deque():
     d.shift()
     d.pop()
     d.clear()
+    print(d._head, d._tail)
     print(d)
 
 # test_deque()
 
 def text_dllist():
     l = DoublyLinkedList([54, 27])
-    l.append(10).prepend(20).append(40).prepend(30)
     l.pop()
+    l.reverse
+    print(l)
+    l.append(10).prepend(20).append(40).prepend(30)
+    print(l)
+    l.reverse()
+    print(l)
+    l.pop_at(4)
     l.shift()
+    l.insert(0, 69)
     l.insert(0, 69)
     l.insert(15, 70)
     l.insert(4, 71)
     l.insert(6, 72)
+    # l.remove(27)
+    l.remove(71)
+    l.remove(72)
+    l.remove(69)
+    l.remove(69)
+    print(l)
+    l.pop()
+    l.clear()
+    l.reverse()
     print(l)
 
 # text_dllist()

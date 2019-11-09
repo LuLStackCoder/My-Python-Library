@@ -48,7 +48,7 @@ class LinkedList(AbstractLinkedList):
     def insert(self, index, item) -> object:
         if index < 0:
             raise IndexError("Negative index")
-        if self.empty() or index == 0:
+        elif self.empty() or index == 0:
             self.prepend(item)
         elif index >= self._size:
             self.append(item)
@@ -64,9 +64,13 @@ class LinkedList(AbstractLinkedList):
     def pop(self, index=0) -> None:
         if self.empty():
             raise IndexError("List empty")
-        if index < 0:
+        elif index < 0:
             raise IndexError("Negative index")
-        if index == 0:
+        if self._head is self._tail:
+            del self._head
+            self._head = None
+            self._tail = None
+        elif index == 0:
             temp = self._head
             self._head = self._head.next
             del temp
@@ -86,6 +90,26 @@ class LinkedList(AbstractLinkedList):
             temp.next = next_node
         self._size -= 1
 
+    def remove(self, value):
+        index = self.indexof(value)
+        if index == -1:
+            raise IndexError('No such value')
+        else:
+            self.pop(index)
+
     def clear(self) -> None:
         while not self.empty():
             self.pop()
+    
+    def reverse(self):
+        curr = self._head
+        tail = self._head
+        next = None
+        prev = None
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        self._head = prev
+        self._tail = tail

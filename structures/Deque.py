@@ -38,7 +38,7 @@ class Deque(AbstractLinkedList):
             raise IndexError("Deque empty")
         item = self._head.item
         if self._head is self._tail:
-            del self._tail
+            del self._head
             self._head = None
             self._tail = None
         else:

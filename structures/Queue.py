@@ -25,10 +25,15 @@ class Queue(AbstractLinkedList):
     def dequeue(self):
         if self.empty():
             raise IndexError("Queue empty")
-        temp_node = self._head.next
         item = self._head.item
-        del self._head
-        self._head = temp_node
+        if self._head is self._tail:
+            del self._head
+            self._head = None
+            self._tail = None
+        else:
+            temp_node = self._head.next
+            del self._head
+            self._head = temp_node
         self._size -= 1
         return item
 
