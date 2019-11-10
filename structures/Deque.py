@@ -12,6 +12,9 @@ class Deque(AbstractLinkedList):
                 self.append(i)
     
     def append(self, item) -> object:
+        """
+            Add an element to the tail.
+        """
         new_node = DoubleNode(item, None, self._tail)
         if (self.empty()):
             self._head = new_node
@@ -23,6 +26,9 @@ class Deque(AbstractLinkedList):
         return self
 
     def prepend(self, item) -> object:
+        """
+            Add an element to the head.
+        """
         new_node = DoubleNode(item, self._head, None)
         if (self.empty()):
             self._head = new_node
@@ -34,8 +40,11 @@ class Deque(AbstractLinkedList):
         return self
 
     def shift(self):
+        """
+            Remove an element from the head.
+        """
         if self.empty():
-            raise IndexError("Deque empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
         item = self._head.item
         if self._head is self._tail:
             del self._head
@@ -50,8 +59,11 @@ class Deque(AbstractLinkedList):
         return item
 
     def pop(self):
+        """
+            Remove an element from the tail.
+        """
         if self.empty():
-            raise IndexError("Deque empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
         item = self._tail.item
         if self._head is self._tail:
             del self._tail
@@ -66,17 +78,26 @@ class Deque(AbstractLinkedList):
         return item
 
     def front(self):
+        """
+            Get a head item.
+        """
         if not self.empty():
             return self._head.item
         else:
-            raise IndexError("Deque empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
 
     def back(self):
+        """
+            Get a tail item.
+        """
         if not self.empty():
             return self._tail.item
         else:
-            raise IndexError("Deque empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
 
     def clear(self) -> None:
+        """
+            Remove all elements from the list.
+        """
         while not self.empty():
             self.pop()

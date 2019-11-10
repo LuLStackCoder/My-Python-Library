@@ -5,6 +5,7 @@ from structures import Queue
 from structures import Deque
 from structures import DoublyLinkedList
 from structures import CircularLinkedList
+from structures import PriorityQueue
 
 def test_linked_list():
     l = LinkedList([1, 2, 3])
@@ -98,6 +99,7 @@ def test_queue():
     print(q.indexof(25))
     print(q)
     q.clear()
+    q.pop()
     print(q._head, q._tail)
     print(q)
     q.enqueue(25)
@@ -114,12 +116,13 @@ def test_deque():
     d.shift()
     d.pop()
     d.clear()
+    # d.pop()
     print(d._head, d._tail)
     print(d)
 
 # test_deque()
 
-def text_dllist():
+def test_dllist():
     l = DoublyLinkedList([54, 27])
     l.pop()
     l.reverse
@@ -143,7 +146,19 @@ def text_dllist():
     print(l)
     l.pop()
     l.clear()
+    # l.pop()
     l.reverse()
     print(l)
 
-# text_dllist()
+# test_dllist()
+
+def test_pqueue():
+    q = PriorityQueue([1, 2, 3, 4])
+    print(q)
+    q.clear()
+    q.enqueue(1, 4).enqueue(3, 5).enqueue(4, 6).enqueue(1, 9).enqueue(5, 10)
+    print(q)
+    print(q.max())
+    print(q.min())
+
+test_pqueue()

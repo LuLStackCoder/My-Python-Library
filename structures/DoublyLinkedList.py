@@ -6,6 +6,10 @@ class DoublyLinkedList(Deque):
     Implementation of an DoublyLinkedList.
     """
     def insert(self, index, item) -> object:
+        """
+            Insert an element to the index-position.
+        """
+        if in
         if index < 0:
             raise IndexError("Negative index")
         elif self.empty() or index == 0:
@@ -23,8 +27,11 @@ class DoublyLinkedList(Deque):
         return self
 
     def pop_at(self, index=0):
+        """
+            Remove an element from index-position.
+        """
         if self.empty():
-            raise IndexError("List empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
         elif index < 0:
             raise IndexError("Negative index")
         if self._head is self._tail:
@@ -52,17 +59,20 @@ class DoublyLinkedList(Deque):
 
 
     def remove(self, value):
+        """
+            Remove the first occurrence of an element
+            from the list with particular value.
+        """
         index = self.indexof(value)
         if index == -1:
             raise IndexError('No such value')
         else:
             self.pop_at(index)
 
-    def clear(self) -> None:
-        while not self.empty():
-            self.pop()
-
     def reverse(self):
+        """
+            Reverse the list.
+        """
         temp = None
         curr = self._head
         tail = self._head

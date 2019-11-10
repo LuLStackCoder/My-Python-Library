@@ -12,18 +12,27 @@ class LinkedList(AbstractLinkedList):
                 self.append(i)
 
     def front(self):
+        """
+            Get a head item.
+        """
         if not self.empty():
             return self._head.item
         else:
-            raise IndexError("List empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
 
     def back(self):
+        """
+            Get a tail item.
+        """
         if not self.empty():
             return self._tail.item
         else:
-            raise IndexError("List empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
 
     def append(self, item) -> object:
+        """
+            Add an element to the tail.
+        """
         new_node = Node(item)
         if self._head == None:
             self._head = new_node
@@ -35,6 +44,9 @@ class LinkedList(AbstractLinkedList):
         return self
 
     def prepend(self, item) -> object:
+        """
+            Add an element to the head.
+        """
         new_node = Node(item)
         if self._head == None:
             self._head = new_node
@@ -46,6 +58,9 @@ class LinkedList(AbstractLinkedList):
         return self
 
     def insert(self, index, item) -> object:
+        """
+            Insert an element to the index-position.
+        """
         if index < 0:
             raise IndexError("Negative index")
         elif self.empty() or index == 0:
@@ -62,8 +77,11 @@ class LinkedList(AbstractLinkedList):
         return self
 
     def pop(self, index=0) -> None:
+        """
+            Remove an element from index-position.
+        """
         if self.empty():
-            raise IndexError("List empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
         elif index < 0:
             raise IndexError("Negative index")
         if self._head is self._tail:
@@ -91,6 +109,10 @@ class LinkedList(AbstractLinkedList):
         self._size -= 1
 
     def remove(self, value):
+        """
+            Remove the first occurrence of an element
+            from the list with particular value.
+        """
         index = self.indexof(value)
         if index == -1:
             raise IndexError('No such value')
@@ -98,10 +120,16 @@ class LinkedList(AbstractLinkedList):
             self.pop(index)
 
     def clear(self) -> None:
+        """
+            Remove all elements from the list.
+        """
         while not self.empty():
             self.pop()
     
     def reverse(self):
+        """
+            Reverse the list.
+        """
         curr = self._head
         tail = self._head
         next = None

@@ -15,7 +15,7 @@ class Node(object):
     def __repr__(self):
         return f'{super().__repr__()}\nValue: {self.item}'
 
-class DoubleNode(object):
+class DoubleNode(Node):
     """
         Node class representing each of the doubly-linked nodes in the list.
     """
@@ -24,11 +24,11 @@ class DoubleNode(object):
         self.next = next
         self.prev = prev
 
-    def __str__(self):
-        return f'{self.item}'
-
-    def __eq__(self, other):
-        return self.__class__ == other.__class__ and self.item == other.item
-
-    def __repr__(self):
-        return f'{super().__repr__()}\nValue: {self.item}'
+class PQNode(Node):
+    """
+        Node class representing each of the linked nodes with priority in the list.
+    """
+    def __init__(self, item, priority, next=None):
+        self.item = item
+        self.priority = priority
+        self.next = next

@@ -3,17 +3,29 @@ class AbstractLinkedList(object):
         Abstract class representing the LinkedList inteface.
     """
     def __init__(self) -> None:
+        """
+            Initialize class with head, tail and size of the container.
+        """
         self._head = None
         self._tail = None
         self._size = 0
 
     def size(self) -> int:
+        """
+            Size of container
+        """
         return self._size
 
     def empty(self) -> bool:
+        """
+            Сhecking whether the container has at least one element.
+        """
         return self._size == 0
 
     def indexof(self, item) -> int:
+        """
+            Index of item, -1 if the value isn't in container.
+        """
         count = 0
         for i in self:
             if i.item == item:

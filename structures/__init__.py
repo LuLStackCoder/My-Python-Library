@@ -3,13 +3,11 @@ from .Stack import Stack
 from .Queue import Queue
 from .Deque import Deque
 from .DoublyLinkedList import DoublyLinkedList
-from .CircularLinkedList import CircularLinkedList
-# PriorityQueue.py
+from .PriorityQueue import PriorityQueue
 
 __all__ = ['LinkedList',
             'DoublyLinkedList',
             'Queue',
             'Stack',
-            'Deque'
-            'CurcularLinkedList',
+            'Deque',
             'PriorityQueue',]

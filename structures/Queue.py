@@ -10,8 +10,11 @@ class Queue(AbstractLinkedList):
         if iterable != None:
             for i in iterable:
                 self.enqueue(i)
-    
+
     def enqueue(self, item) -> object:
+        """
+            Add an element to the tail.
+        """
         new_node = Node(item)
         if (self.empty()):
             self._head = new_node
@@ -23,8 +26,11 @@ class Queue(AbstractLinkedList):
         return self
 
     def dequeue(self):
+        """
+            Remove an element from the head.
+        """
         if self.empty():
-            raise IndexError("Queue empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
         item = self._head.item
         if self._head is self._tail:
             del self._head
@@ -38,18 +44,27 @@ class Queue(AbstractLinkedList):
         return item
 
     def front(self):
+        """
+            Get a head value.
+        """
         if not self.empty():
             return self._head.item
         else:
-            raise IndexError("Queue empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
 
     def back(self):
+        """
+            Get a tail value.
+        """
         if not self.empty():
             return self._tail.item
         else:
-            raise IndexError("Queue empty")
+            raise IndexError(f"{self.__class__.__name__} empty")
 
     def clear(self) -> None:
+        """
+            Remove all elements from the queue.
+        """
         temp = self._head
         while not self.empty():
             self.dequeue()
