@@ -9,7 +9,6 @@ class DoublyLinkedList(Deque):
         """
             Insert an element to the index-position.
         """
-        if in
         if index < 0:
             raise IndexError("Negative index")
         elif self.empty() or index == 0:

@@ -4,8 +4,8 @@ from structures import Stack
 from structures import Queue
 from structures import Deque
 from structures import DoublyLinkedList
-from structures import CircularLinkedList
 from structures import PriorityQueue
+from structures import BinarySearchTree
 
 def test_linked_list():
     l = LinkedList([1, 2, 3])
@@ -99,7 +99,7 @@ def test_queue():
     print(q.indexof(25))
     print(q)
     q.clear()
-    q.pop()
+    # q.pop()
     print(q._head, q._tail)
     print(q)
     q.enqueue(25)
@@ -161,4 +161,15 @@ def test_pqueue():
     print(q.max())
     print(q.min())
 
-test_pqueue()
+# test_pqueue()
+
+b = BinarySearchTree()
+b.insert(10, 'yellow')
+b.insert(22, 'green')
+b.insert(5, 'red')
+b.insert(1, 'blue')
+b.insert(21, 'purple')
+# print(b._root)
+b.bfs(b._root)
+# b[10] = 'pink'
+# print(b[10])

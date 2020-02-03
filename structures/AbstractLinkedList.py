@@ -33,6 +33,8 @@ class AbstractLinkedList(object):
             count += 1
         return -1
 
+
+
     def __str__(self) -> str:
         if self._head == None:
             return '[]'
@@ -65,10 +67,19 @@ class AbstractLinkedList(object):
     def __getitem__(self, index):
         count = 0
         if index >= self._size:
-                raise IndexError('list index out of range')
+                raise IndexError('List index out of range')
         for i in self:
             if count == index:
                 return i.item
+            count += 1
+    
+    def __setitem__(self, index, value) -> None:
+        count = 0
+        if index >= self._size:
+            raise IndexError('List index out of range')
+        for i in self:
+            if count == index:
+                i.item = value
             count += 1
 
     def __eq__(self, other) -> bool:
