@@ -40,9 +40,9 @@ class BinarySearchTree(object):
         if node is None:
             return
         if node.left:
-            self.preorder(node.left)
+            self.postorder(node.left)
         if node.right:
-            self.preorder(node.right)
+            self.postorder(node.right)
         fn(node.item)
 
     def bfs(self, node, fn=print):
@@ -62,10 +62,10 @@ class BinarySearchTree(object):
         if node is None:
             return
         if node.left:
-            self.preorder(node.left)
+            self.inorder(node.left)
         fn(node.item)
         if node.right:
-            self.preorder(node.right)
+            self.inorder(node.right)
 
 
     def insert(self, key, item):
